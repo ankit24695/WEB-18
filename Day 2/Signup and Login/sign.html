@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home2.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <div>
+        <a href="sign.html">Sign Up</a>
+        </div>
+        <div>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+    <h1>Sign Up</h1>
+    <form id="form">
+        <label for="">Full name</label><br />
+        <input id="name" type="text" placeholder="Enter the Name" /><br />
+        <label for="">email</label><br />
+        <input id="mail" type="text" placeholder="Enter the email" /><br />
+        <label for="">Password</label><br />
+        <input id="pass" type="text" placeholder="Enter the password" /><br />
+        <input type="submit" />
+      </form> 
+</body>
+</html>
+
+<script>
+var form =document.querySelector("#form");
+form.addEventListener("submit", myfunction)
+
+var detailarr=JSON.parse(localStorage.getItem("detailarray"))||[];
+
+function myfunction(){
+event.preventDefault();
+
+var detail={
+name: form.name.value,
+email: form.mail.value,
+password:form.pass.value,
+}
+
+detailarr.push(detail);
+ localStorage.setItem("detailarray", JSON.stringify(detailarr));
+
+}
+
+
+
+</script>
