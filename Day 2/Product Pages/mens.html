@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens</title>
+    <style>
+    .container{
+        width:90%;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin:auto;
+    }
+    .container>div{
+        width:23%;
+        margin-top:10px;
+        margin-bottom: 20px;
+    }
+img{
+    width:100%
+}
+.nav{
+    display:flex;
+    justify-content: space-around;
+    background-color: rgb(119, 102, 216);
+  }
+  .nav>div>a{
+      text-decoration: none;
+      color:white;
+      font-size: 22px;
+  }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div>
+        <a href="mens.html">MENS</a>
+        </div>
+        <div>
+            <a href="womens.html">WOMENS</a>
+        </div>
+    </div>
+    <h1>Mens Page</h1>
+    <div class="container">
+
+    </div>
+    
+</body>
+</html>
+<script>
+
+    var parent = document.querySelector(".container")
+
+    var obj = JSON.parse(localStorage.getItem("mensdata"));
+
+    obj.map(function(ele){
+var box = document.createElement("div");
+
+var img = document.createElement("img")
+img.setAttribute("src", ele.image_url)
+
+
+var head = document.createElement("h3")
+head.innerText = ele.name
+
+var price = document.createElement("p")
+price.innerText = ele.price;
+
+
+var btn = document.createElement("button");
+btn.innerText = "Add to Cart"
+btn.style.padding = "10px 15px"
+
+box.append(img, head, price, btn)
+
+parent.append(box);
+    
+})
+
+</script>
