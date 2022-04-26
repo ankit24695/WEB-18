@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+button{
+    padding:10px 15px;
+    color:red;
+}
+
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <button class="" id="inc">Increment</button>
+    <button class="" id="dec">Decrement</button>
+</body>
+</html>
+
+<script>
+var count = JSON.parse(localStorage.getItem("counter"))||0
+document.querySelector("h1").innerText = count;
+
+
+document.querySelector("#inc").addEventListener("click",incfun)
+
+document.querySelector("#dec").addEventListener("click",decfun)
+
+function incfun(){
+count++;
+document.querySelector("h1").innerText = count;
+localStorage.setItem("counter",count)    
+}
+
+function decfun(){
+    count--;
+document.querySelector("h1").innerText = count;
+localStorage.setItem("counter",count)    
+
+}
+
+
+</script>
