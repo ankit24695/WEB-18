@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <div>
+        <a href="backend.html">BACKEND</a>
+        </div>
+        <div>
+            <a href="frontend.html">FRONTEND</a>
+        </div>
+    </div>
+    <form id="form">
+        <label for="">Name</label><br />
+        <input id="name" type="text" placeholder="Enter the Name" /><br />
+        <label for="">Image Url</label><br />
+        <input id="img" type="text" placeholder="Enter the URL" /><br />
+        <label for="">Logo Url</label><br />
+        <input id="logo" type="text" placeholder="Enter the logo Url" /><br />
+        <label for="">Role</label><br />
+        <input id="role" type="text" placeholder="Enter the role" /><br />
+        <input type="submit" />
+      </form> 
+</body>
+</html>
+
+<script>
+var form =document.querySelector("#form");
+form.addEventListener("submit", myfunction)
+
+var investarr=JSON.parse(localStorage.getItem("investarray"))||[];
+
+function myfunction(){
+event.preventDefault();
+
+var investobj={
+investname: form.name.value,
+investimg: form.img.value,
+investlogo:form.logo.value,
+investrole:form.role.value,
+}
+
+investarr.push(investobj);
+ localStorage.setItem("investarray", JSON.stringify(investarr));
+
+}
+
+
+
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap:10px;
+            margin:auto;
+            margin-left:20px;
+        }
+        .container>div{
+            margin-top:20px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border-radius: 10px;
+        }
+        h1,h3,p{
+            text-align: center;
+        }
+#logo{
+    height:50px;
+    display:block;
+    margin:auto;
+}
+#main{
+    width:100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.nav{
+  display:flex;
+  justify-content: space-around;
+  background-color: brown;
+}
+.nav>div>a{
+    text-decoration: none;
+    color:white;
+    font-size: 22px;
+}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div>
+        <a href="backend.html">BACKEND</a>
+        </div>
+        <div>
+            <a href="frontend.html">FRONTEND</a>
+        </div>
+    </div>
+    <div class="container"></div>
+</body>
+</html>
+
+<script>
+
+
+var obj =JSON.parse(localStorage.getItem("investarray"))
+
+obj.forEach(function(ele){
+    var box = document.createElement("div");
+    var perimg = document.createElement("img")
+    perimg.setAttribute("src", ele.investimg);
+    perimg.setAttribute("id", "main")
+
+    var name = document.createElement("h3");
+    name.innerText = ele.investname;
+
+    var pos = document.createElement("p");
+    pos.innerText = ele.investrole;
+
+    var img = document.createElement("img")
+    img.setAttribute("src", ele.investlogo);
+    img.setAttribute("id", "logo")
+
+    box.append(perimg, name, pos, img);
+
+    document.querySelector(".container").append(box);
+})
+
+
+
+
+</script>
